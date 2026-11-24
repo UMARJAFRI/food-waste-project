@@ -1,0 +1,8 @@
+frontend/node_modules/
+frontend/dist/
+backend/food_waste.db
+backend/__pycache__/
+*.py[cod]
+work/
+.venv/
+
