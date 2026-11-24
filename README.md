@@ -6,7 +6,7 @@ A local EVS mini-project for tracking canteen food preparation, consumption and 
 
 GitHub Pages runs the React frontend as a static site. In that mode, the app includes the same 120-record demonstration data and keeps each visitor's added or edited records in that visitor's browser storage. It does not connect to a publicly hosted Flask service. The local setup below uses Flask and SQLite instead.
 
-After the first GitHub Actions deployment, the project page is available at `https://abhignya-c12.github.io/food-waste-project/`.
+After the first GitHub Actions deployment, the project page is available at `https://umarjafri.github.io/food-waste-project/`.
 
 ## What it does
 
