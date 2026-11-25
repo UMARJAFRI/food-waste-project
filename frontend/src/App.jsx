@@ -3,7 +3,7 @@ import {Area,AreaChart,Bar,BarChart,CartesianGrid,Cell,Line,LineChart,Responsive
 import {Activity,ArrowDownRight,ArrowUpRight,CalendarDays,ChartNoAxesCombined,Check,ChevronDown,ClipboardList,Clock3,Download,Leaf,Lightbulb,Menu,Plus,Recycle,Search,Settings2,ShieldCheck,Sparkles,Trash2,Utensils,WalletCards,X, Pencil,Users,Target} from 'lucide-react';
 import {staticApi} from './staticApi';
 
-const API='http://127.0.0.1:5000/api';
+const API='/api';
 const STATIC_DEMO=import.meta.env.VITE_STATIC_DEMO==='1';
 const nav=[['Overview','overview',ChartNoAxesCombined],['Food records','records',ClipboardList],['Waste prediction','prediction',Activity],['Recommendations','recommendations',Lightbulb],['About project','about',Leaf]];
 async function api(path,opts={}){if(STATIC_DEMO)return staticApi(path,opts);const r=await fetch(API+path,{headers:{'Content-Type':'application/json'},...opts});const d=await r.json();if(!r.ok)throw Error(d.error||'Something went wrong.');return d}

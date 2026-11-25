@@ -8,6 +8,12 @@ GitHub Pages runs the React frontend as a static site. In that mode, the app inc
 
 After the first GitHub Actions deployment, the project page is available at `https://umarjafri.github.io/food-waste-project/`.
 
+## Vercel multi-service deployment
+
+The repository root contains `vercel.json` with two services: `backend` (`backend/`, Flask) and `frontend` (`frontend/`, Vite). Public requests under `/api/*` route to Flask; all other paths route to the React frontend. The browser calls `/api` on the same origin, and Vite proxies that path to the local Flask server during development.
+
+On Vercel, SQLite is placed in the runtime temporary directory so the function can write to it. This is demo storage only: serverless temporary storage is not durable or shared between instances, so records can reset and may not appear consistently across requests. Use a persistent database before relying on Vercel for real canteen records. The Vercel Services feature is currently in beta.
+
 ## What it does
 
 - Overview dashboard with date ranges, summary metrics, charts and recent records.

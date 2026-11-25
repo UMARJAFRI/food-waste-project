@@ -1,12 +1,17 @@
 from datetime import date, timedelta
+import os
 from pathlib import Path
 import sqlite3
+import tempfile
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-DB_PATH = Path(__file__).with_name('food_waste.db')
+LOCAL_DB_PATH = Path(__file__).with_name('food_waste.db')
+DB_PATH = Path(os.environ.get('FOOD_WASTE_DB_PATH') or (
+    Path(tempfile.gettempdir()) / 'food_waste.db' if os.environ.get('VERCEL') else LOCAL_DB_PATH
+))
 MEALS = {'Breakfast', 'Lunch', 'Dinner'}
 
 def connect():
